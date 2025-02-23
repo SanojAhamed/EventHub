@@ -92,6 +92,7 @@ export function HomePage() {
           </div>
         </div>
       </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Browse by Category</h2>
         <div className="flex flex-wrap gap-4 justify-center">
@@ -99,19 +100,72 @@ export function HomePage() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full whitespace-nowrap ${selectedCategory === category ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+              className={`px-6 py-3 rounded-full whitespace-nowrap ${
+                selectedCategory === category
+                  ? 'bg-orange-500 text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
             >
               {category}
             </button>
           ))}
         </div>
       </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Featured Events</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sampleEvents.map((event) => (
             <EventCard key={event.id} event={event} onBook={handleBookEvent} />
           ))}
+        </div>
+      </div>
+      </div>
+
+      <div className="bg-orange-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Why Choose EventHub?
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center"> 1 </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2"> Secure Booking </h3>
+                    <p className="text-gray-600">Our platform ensures your bookings are safe and secure </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center">
+                      2
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
+                    <p className="text-gray-600"> Our customer service team is always here to help</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center">3</div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Best Prices </h3>
+                    <p className="text-gray-600"> Get competitive prices and exclusive deals</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"alt="Event" className="w-full h-full object-cover"/>
+            </div>
+          </div>
         </div>
       </div>
     </div>
