@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { SignInPage } from './pages/SignInPage';
+import { MyBookingsPage } from './pages/MyBookingsPage';
 import { Footer } from './components/Footer';
 
 export function App() {
@@ -19,6 +20,8 @@ export function App() {
         return <HomePage />;
       case 'signin':
         return <SignInPage onNavigate={setCurrentPage} />;
+      case 'bookings':
+        return <MyBookingsPage />;
       default:
         return <HomePage />;
     }

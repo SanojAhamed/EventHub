@@ -15,6 +15,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
     { label: 'Services', icon: Briefcase, page: 'services' },
     { label: 'Contact', icon: Mail, page: 'contact' },
     { label: 'About', icon: Users, page: 'about' },
+    { label: 'My Bookings', icon: Ticket, page: 'bookings' },
   ];
 
   return (
@@ -29,7 +30,6 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
             <span className="text-xl font-bold">EventHub</span>
           </button>
 
-      
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
@@ -46,13 +46,6 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
 
           <div className="flex items-center space-x-4">
             <button 
-              onClick={() => onNavigate('bookings')}
-              className="hidden md:flex items-center space-x-1 text-gray-600 hover:text-orange-500"
-            >
-              <Ticket className="w-4 h-4" />
-              <span>My Bookings</span>
-            </button>
-            <button 
               onClick={() => onNavigate('signin')}
               className="flex items-center space-x-1 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600"
             >
@@ -60,7 +53,6 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
               <span>Sign In</span>
             </button>
 
-            
             <button
               className="md:hidden p-2 rounded-md text-gray-600 hover:text-orange-500 hover:bg-gray-100"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -75,28 +67,6 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
             </button>
           </div>
         </div>
-
-      
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-gray-200">
-            <div className="space-y-2 pt-4">
-              {[...navItems, { label: 'My Bookings', icon: Ticket, page: 'bookings' }].map((item) => (
-                <button
-                  key={item.page}
-                  onClick={() => {
-                    onNavigate(item.page);
-                    setIsMenuOpen(false);
-                  }}
-                  className={`flex items-center space-x-2 w-full px-4 py-2 text-sm font-medium transition-colors
-                    ${currentPage === item.page ? 'text-orange-500 bg-orange-50' : 'text-gray-600 hover:bg-gray-50 hover:text-orange-500'}`}
-                >
-                  <item.icon className="w-4 h-4" />
-                  <span>{item.label}</span>
-                </button>
-              ))}
-            </div>
-          </nav>
-        )}
       </div>
     </header>
   );
